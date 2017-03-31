@@ -1,0 +1,70 @@
+Startup mongod and the mongo shell and switch to a new db named zoo.
+
+Insert into a collection named animals:
+One entry for each of your five favorite animals.
+
+Each entry should have 
+1. A field of numlegs with an integer of the number of legs that animal has. 
+2. A field of class with that animal's class (mammal, reptile, etc).
+3. A field of avgWeight with an integer of the average weight of the animal in pounds (any reasonable weight, really).
+4. A field of name, with the animal's name.
+5. A field of whatIWouldReallyCallIt with the name of what you would call the animal if you got to name it.
+
+Example:
+
+{
+  "name": "Panda",
+  "numlegs": 4,
+  "class": "mammal",
+  "weight": 254,
+  "whatIWouldReallyCallIt": "Captain Fuzzy Face"
+}
+
+
+
+
+STEPS
+
+
+1) use zoo
+2) db.animals.insertMany([{   "name": "Panda",   "numlegs": 4,   "class": "mammal",   "weight": 254,   "whatIWouldReallyCallIt": "Captain Fuzzy Face" }, {   "name": "Wolf",   "numlegs": 4,   "class": "mammal",   "weight": 170,   "whatIWouldReallyCallIt": "New Dog" }, {   "name": "Tiger",   "numlegs": 4,   "class": "mammal",   "weight": 215,   "whatIWouldReallyCallIt": "Tigger" }, {   "name": "Rhino",   "numlegs": 4,   "class": "mammal",   "weight": 400,   "whatIWouldReallyCallIt": "Mister Horn Knee" }, {   "name": "Lion",   "numlegs": 4,   "class": "mammal",   "weight": 200,   "whatIWouldReallyCallIt": "Big Fluffer" }])
+
+/* 3-INSERTING ANIMALS 
+ * ===================================================== */
+
+// An example of animals you can insert into the zoo db
+// =================================================================
+
+use zoo
+db.animals.insert({"name":"Panda", "numlegs":4, "class":"mammal", "weight": 254, "whatIWouldReallyCallIt":"Captain Fuzzy Face"})
+db.animals.insert({"name":"Dog", "numlegs":4, "class":"mammal", "weight": 60, "whatIWouldReallyCallIt":"Captain Fuzzy Face II"})
+db.animals.insert({"name":"Lion", "numlegs":4, "class":"mammal", "weight": 300, "whatIWouldReallyCallIt":"Grumbles"})
+db.animals.insert({"name":"Zebra", "numlegs":4, "class":"mammal", "weight": 500, "whatIWouldReallyCallIt":"Stripes"})
+db.animals.insert({"name":"Chameleon", "numlegs":4, "class":"Reptile", "weight": 5, "whatIWouldReallyCallIt":"Scales"})
+
+
+
+// 4 - Sorting Results
+// ================================
+
+// The format of a sort follows db.COLLECTION_NAME.find().sort({FIELD:1})
+
+// A value of 1 is for ascending order.
+// A value of -1 is for descending order.
+
+// NOTE: Remember to add .pretty() afterwards so the results are readable!
+// In the mongo shell, using the animals collection that you created in the last exercise:
+
+// 1. Show them how to sort by id:
+// The id contains a timestamp, so sorting by id will sort by when they were entered to the database.
+db.animals.find().sort({_id:1})
+db.animals.find().sort({_id:-1})
+
+// 2. Show them how to sort by an integer - numlegs:
+db.animals.find().sort({numlegs:1})
+db.animals.find().sort({numlegs:-1})
+
+
+// 3. Show them how to sort by a string - class:
+db.animals.find().sort({class:1})
+db.animals.find().sort({class:-1})

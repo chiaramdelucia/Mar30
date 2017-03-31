@@ -1,0 +1,15 @@
+“/ will display a simple hello world message.
+/all will display a json with every animal in your zoo collection.
+/name will display a json with every animal, sorted by name.
+/weight will display a json with every animal, sorted by weight.”
+
+
+
+TODO: Make four routes that display results from your zoo collection
+
+0: Root: Displays a simple “Hello World” message (no mongo required).
+1: All: show every animal in a json
+2: Name: sort results by name in ascending order, in a json
+3: Weight: sort results by weight in descending order, in a json
+
+
